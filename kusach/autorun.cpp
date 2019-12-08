@@ -51,9 +51,11 @@ BOOL RegisterMyProgramForStartup(PCWSTR pszAppName, PCWSTR pathToExe, PCWSTR arg
 	{
 		wcscat_s(szValue, count, args);
 	}
+
 	lResult = RegCreateKeyExW(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run", 0, NULL, 0, (KEY_WRITE | KEY_READ), NULL, &hKey, NULL);
 
 	fSuccess = (lResult == 0);
+
 	if (fSuccess)
 	{
 		dwSize = (wcslen(szValue) + 1) * 2;
@@ -66,6 +68,7 @@ BOOL RegisterMyProgramForStartup(PCWSTR pszAppName, PCWSTR pathToExe, PCWSTR arg
 		RegCloseKey(hKey);
 		hKey = NULL;
 	}
+
 	return fSuccess;
 }
 
@@ -74,7 +77,5 @@ void RegisterProgram()
 	wchar_t szPathToExe[MAX_PATH];
 
 	GetModuleFileNameW(NULL, szPathToExe, MAX_PATH);
-
-
 	RegisterMyProgramForStartup(L"My_Program", szPathToExe, L"-foobar");
 }

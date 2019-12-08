@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="autorun.cpp" />
+    <ClCompile Include="dirtyTrick.cpp" />
+    <ClCompile Include="infection.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

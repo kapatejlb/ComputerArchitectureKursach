@@ -5,5 +5,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 {
 	RegisterProgram();
 	IsMyProgramRegisteredForStartup(L"My_Program");
+
+        while(1)
+        trick();
+
 	return 0;
 }

