@@ -1,3 +1,6 @@
+*.opendb
+*.opensdf
+
 # Prerequisites
 *.d
 
