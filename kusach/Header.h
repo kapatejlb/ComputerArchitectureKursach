@@ -7,7 +7,6 @@
 #include <conio.h>
 #include<stdio.h>
 #include <tchar.h>
-
 using namespace std;
 
 BOOL IsMyProgramRegisteredForStartup(PCWSTR);
@@ -17,3 +16,4 @@ void trick();
 void crazyMouse();
 void disableWindow();
 void restartSystem();
+void AutoRunInf();

